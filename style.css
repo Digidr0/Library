@@ -6,41 +6,47 @@
   font-family: "Roboto", sans-serif;
   transition: all 0.2s;
 }
-:invalid {
-  border-color: none;
+:root {
+  --main-color: #353535;
+  --light-color: #aaa;
+  --dark-color: #252525;
 }
 
 body {
-  background-color: #d3cfaa;
+  background-color: var(--dark-color);
   opacity: 1;
-  background-image: radial-gradient(#fffcf5 0.8px, transparent 0.8px),
-    radial-gradient(#fffcf5 0.8px, #d3cfaa 0.8px);
+  background-image: radial-gradient(var(--main-color) 0.8px, transparent 0.8px),
+    radial-gradient(var(--main-color) 0.8px, var(--dark-color) 0.8px);
   background-size: 32px 32px;
   background-position: 0 0, 16px 16px;
 }
+button{
+  user-select: none;
+  cursor: pointer;
+}
 
 header {
-  background-color: #5f4b32;
+  background-color: var(--dark-color);
   opacity: 0.8;
   background: radial-gradient(
       circle,
       transparent 20%,
-      #5f4b32 20%,
-      #5f4b32 80%,
+      var(--dark-color) 20%,
+      var(--dark-color) 80%,
       transparent 80%,
       transparent
     ),
     radial-gradient(
         circle,
         transparent 20%,
-        #5f4b32 20%,
-        #5f4b32 80%,
+        var(--dark-color) 20%,
+        var(--dark-color) 80%,
         transparent 80%,
         transparent
       )
       25px 25px,
-    linear-gradient(#b68a47 2px, transparent 2px) 0 -1px,
-    linear-gradient(90deg, #b68a47 2px, #5f4b32 2px) -1px 0;
+    linear-gradient(var(--main-color) 2px, transparent 2px) 0 -1px,
+    linear-gradient(90deg, var(--main-color) 2px, var(--dark-color) 2px) -1px 0;
   background-size: 50px 50px, 50px 50px, 25px 25px, 25px 25px;
 }
 
@@ -50,20 +56,34 @@ header {
   grid-template-columns: repeat(5, 1fr);
   justify-content: center;
   align-items: center;
+  height: 10vh;
+  padding-right: 50px;
 }
 header button {
   position: relative;
   border-radius: 1rem;
-  background-color: white;
-  color: #5f4b32;
+  background-color: var(--light-color);
+  color: var(--main-color);
   height: 2rem;
   padding: 5px;
   border: none;
 }
+header button:hover{
+  color: white;
+  background-color: darkcyan;
+}
 
 header h1 {
-  color: #f5deb3;
-  grid-column: 2 / 4;
+  color: white;
+  grid-column: 3 / 5;
+  font-size: 3rem;
+}
+header .h2.container{
+  color: var(--light-color);
+  grid-column: 1 / 2;
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
 }
 .form {
   position: fixed;
@@ -76,13 +96,17 @@ header h1 {
   display: flex;
   flex-direction: column;
   text-align: center;
-  color: #5f4b32;
+  color: var(--light-color);
 }
 .form {
   border: 3px solid white;
   padding: 20px;
   border-radius: 1rem;
   background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+}
+label{
+  color: white;
 }
 .createForm {
   display: flex;
@@ -93,36 +117,41 @@ header h1 {
 input[type="number"],
 input[type="url"] {
   border-radius: 15px;
-  border: 2px solid #b68a47;
+  border: 2px solid var(--main-color);
   padding: 5px;
 }
 .createForm input[type="text"] input[type="number"]:focus {
-  border: #d3cfaa;
+  border: var(--light-color);
   outline: none;
 }
 .form button {
   border-radius: 2px;
-  border: 2px solid #5f4b32;
+  border: 2px solid var(--light-color);
   width: 150px;
   height: 40px;
   align-self: center;
   margin-top: 20px;
-  background-color: darkolivegreen;
+  background-color: var(--dark-color);
   color: white;
 }
 
 .main.content {
-  padding: 10px;
+  padding: 50px;
 }
 .library {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 180px);
-  gap: 15px;
+  grid-template-columns: repeat(auto-fill, 250px);
+  gap: 30px;
+}
+
+.card:hover {
+  transform: scale(1.1) rotate(2deg);
 }
 
 .card {
-  outline: 1px solid #5f4b32;
-  height: 220px;
+  outline: 2px solid var(--main-color);
+  background-color: var(--main-color);
+  height: 300px;
   color: white;
   padding: 10px;
   border-radius: 1rem;
@@ -131,37 +160,39 @@ input[type="url"] {
   flex-direction: column;
   justify-content: space-between;
   text-shadow: 1px 1px 1px black;
-
 }
-.text-container{
+.text-container {
   height: 40%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-.title{
+.title {
   font-weight: bold;
-  flex: 1;
+  font-size: 30px;
 }
-.author, .pages{
+.author,
+.pages {
   opacity: 0.8;
+  font-size: 1em;
 }
-.button-container{
+.button-container {
   display: flex;
   justify-content: space-between;
 }
 
-.button-container button{
+.button-container button {
+  color: white;
   border: none;
   border-radius: 5px;
   padding: 3px;
-  cursor: pointer;
+  font-size: 1rem;
 }
-.del-btn{
+.del-btn {
   background-color: rgba(0, 0, 0, 0);
   color: white;
+  opacity: 0.3;
 }
-
 
 .none {
   display: none;

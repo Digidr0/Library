@@ -6,25 +6,26 @@ const isReadInput = document.querySelector(".isRead");
 const bookCover = document.querySelector(".url");
 const delBtn = document.querySelector(".del-btn");
 const sumbitBtn = document.querySelector(".sumbit.btn");
+const mainContent = document.querySelector(".main.content");
 
 let myLilbrary = [];
 let idNum = 0;
 
 function randomColor() {
   // Math.random() * (max - min) + min;
-  let h = Math.floor(Math.random() * 30 + 30);
+  let h = Math.floor(Math.random() * (200 - 180) + 180);
   let s = Math.floor(Math.random() * 60 + 40);
-  let l = Math.floor(Math.random() * 30 + 40);
+  let l = Math.floor(Math.random() * 30 + 20);
   return `hsl(${h}, ${s}%, ${l}%)`;
 }
 
 Object.prototype.read = function () {
   this.textContent = "Read";
-  this.style.setProperty("background-color", "#20aa20");
+  this.style.setProperty("background-color", "darkcyan");
 };
 Object.prototype.notRead = function () {
   this.textContent = "Not read";
-  this.style.setProperty("background-color", "#DC2626");
+  this.style.setProperty("background-color", "crimson");
 };
 
 function Book(title, author, pages, isRead, url) {
@@ -58,7 +59,6 @@ function createBook(book) {
   idNum++;
 
   const card = document.createElement("div");
-  const bg = document.createElement("div");
   const title = document.createElement("p");
   const author = document.createElement("p");
   const pages = document.createElement("p");
@@ -77,7 +77,7 @@ function createBook(book) {
   textContainer.classList.add("text-container");
   buttonContainer.classList.add("button-container");
 
-  if (book.url == undefined) {
+  if (book.url == "") {
     card.style.setProperty("background-image", `none`);
     card.style.setProperty("background-color", `${randomColor()}`);
   } else {
@@ -88,7 +88,7 @@ function createBook(book) {
   author.textContent = `by: ${book.author}`;
   pages.textContent = `${book.pages} pages`;
   delBtn.value = idNum;
-  delBtn.textContent = `X`;
+  delBtn.textContent = `×`;
 
   if (book.isRead == true) {
     readBtn.read();
@@ -125,37 +125,43 @@ sumbitBtn.addEventListener("click", (e) => {
   } else if (pagesInput.value == "") {
     pagesInput.style.setProperty("border-color", "red");
   } else {
+    addBookToLibrary();
+    toggleDisplay();
     titleInput.value = "";
     authorInput.value = "";
     pagesInput.value = "";
-    addBookToLibrary();
-    toggleDisplay();
+    bookCover.value = "";
   }
 });
 
+mainContent.addEventListener("click", (e) => {
+  document.querySelector(".form").classList.add("none");
+
+})
+
 const Hobbit = new Book(
-  "Hobbit J.G.RR",
-  "Tolkien",
-  "5603",
+  "Summer adventure",
+  "Richard Hopkins",
+  "1603",
   true,
-  "https://source.unsplash.com/random/200x300/?hobbit"
+  "./img/house.png"
 );
 createBook(Hobbit);
 
 const HarryPotter = new Book(
-  "Harry Potter and flame",
-  "J. roaling",
+  "Harry Potter and goblet of fire",
+  "J. Rowling",
   "2633",
   true,
-  "https://mir-s3-cdn-cf.behance.net/project_modules/fs/6a8033105402815.5f783bbed1129.png"
+  "./img/castle.png"
 );
 createBook(HarryPotter);
 
 const GameOfThrones = new Book(
   "Game of Thrones",
-  "Mark Hendor",
+  "George R. R. Martin",
   "3543",
   false,
-  "https://img.freepik.com/free-vector/chinese-dragon-illustration_113398-177.jpg"
+  "./img/dragon.jpg"
 );
 createBook(GameOfThrones);
