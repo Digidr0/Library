@@ -1,0 +1,168 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  transition: all 0.2s;
+}
+:invalid {
+  border-color: none;
+}
+
+body {
+  background-color: #d3cfaa;
+  opacity: 1;
+  background-image: radial-gradient(#fffcf5 0.8px, transparent 0.8px),
+    radial-gradient(#fffcf5 0.8px, #d3cfaa 0.8px);
+  background-size: 32px 32px;
+  background-position: 0 0, 16px 16px;
+}
+
+header {
+  background-color: #5f4b32;
+  opacity: 0.8;
+  background: radial-gradient(
+      circle,
+      transparent 20%,
+      #5f4b32 20%,
+      #5f4b32 80%,
+      transparent 80%,
+      transparent
+    ),
+    radial-gradient(
+        circle,
+        transparent 20%,
+        #5f4b32 20%,
+        #5f4b32 80%,
+        transparent 80%,
+        transparent
+      )
+      25px 25px,
+    linear-gradient(#b68a47 2px, transparent 2px) 0 -1px,
+    linear-gradient(90deg, #b68a47 2px, #5f4b32 2px) -1px 0;
+  background-size: 50px 50px, 50px 50px, 25px 25px, 25px 25px;
+}
+
+header {
+  height: 4em;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  justify-content: center;
+  align-items: center;
+}
+header button {
+  position: relative;
+  border-radius: 1rem;
+  background-color: white;
+  color: #5f4b32;
+  height: 2rem;
+  padding: 5px;
+  border: none;
+}
+
+header h1 {
+  color: #f5deb3;
+  grid-column: 2 / 4;
+}
+.form {
+  position: fixed;
+  width: 350px;
+  height: 350px;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  margin: -200px 0 0 -220px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  color: #5f4b32;
+}
+.form {
+  border: 3px solid white;
+  padding: 20px;
+  border-radius: 1rem;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.createForm {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.createForm input[type="text"],
+input[type="number"],
+input[type="url"] {
+  border-radius: 15px;
+  border: 2px solid #b68a47;
+  padding: 5px;
+}
+.createForm input[type="text"] input[type="number"]:focus {
+  border: #d3cfaa;
+  outline: none;
+}
+.form button {
+  border-radius: 2px;
+  border: 2px solid #5f4b32;
+  width: 150px;
+  height: 40px;
+  align-self: center;
+  margin-top: 20px;
+  background-color: darkolivegreen;
+  color: white;
+}
+
+.main.content {
+  padding: 10px;
+}
+.library {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 180px);
+  gap: 15px;
+}
+
+.card {
+  outline: 1px solid #5f4b32;
+  height: 220px;
+  color: white;
+  padding: 10px;
+  border-radius: 1rem;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-shadow: 1px 1px 1px black;
+
+}
+.text-container{
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.title{
+  font-weight: bold;
+  flex: 1;
+}
+.author, .pages{
+  opacity: 0.8;
+}
+.button-container{
+  display: flex;
+  justify-content: space-between;
+}
+
+.button-container button{
+  border: none;
+  border-radius: 5px;
+  padding: 3px;
+  cursor: pointer;
+}
+.del-btn{
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+}
+
+
+.none {
+  display: none;
+}

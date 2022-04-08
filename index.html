@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>My library</h1>
+        <button onclick="toggleDisplay()">Add new books</button>
+    </header>
+
+    <div class="main content">
+        <div class="form none">
+            <form class="createForm">
+                <label for="title">Title of the book</label>
+                <input type="text" class="title" placeholder="Hobbit J.G.RR" required>
+
+                <label for="author">Author</label>
+                <input type="text" class="author" placeholder="by Tolkien" required>
+
+                <label for="pages">Number of pages</label>
+                <input type="number" class="pages" placeholder="5620 pages" required>
+
+                <label for="url">Book Cover</label>
+                <input type="url" class="url" placeholder="book-cover.png">
+
+                <div class="checkbox container">
+                    <label for="isRead">Is book read already?</label>
+                    <input type="checkbox"class="isRead">
+                </div>
+            </form>
+            <button class="sumbit btn">Add book</button>
+        </div>
+        <div class="library">
+        
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>
