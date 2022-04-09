@@ -1,7 +1,8 @@
 # Library
 Library, where you can add boooks, and delete them.
- 
-<img src="/img/ref1.png" width="273"/>
- <img src="/img/ref2.png" width="273"/>
- <img src="/img/ref3.png" width="273"/>
+  <div>
+ <img src="/img/Ref1.png" width="30%">
+ <img src="/img/Ref2.png" width="30%">
+ <img src="/img/Ref3.png" width="30%">
+  <div>
 ### Live prewiew you can find [here](https://digidr0.github.io/Library/)
